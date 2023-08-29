@@ -155,7 +155,8 @@ int main()
 		printf("Escolha uma das opções do menu:\n\n"); 
 		printf("\t1 - Cadastrar usuários.\n");
 		printf("\t2 - Consultar ususários.\n");
-		printf("\t3 - Deletar usuários.\n\n"); //Final do menu 
+		printf("\t3 - Deletar usuários.\n"); 
+		printf("\t4 - Sair do sistema.\n\n");//Final do menu 
 		printf("Opção: ");
 	
 		scanf("%d", &opcao); //Armazenando a escolha do usuário na variável opção. É %d, pois é uma variável do tipo inteira
@@ -174,6 +175,11 @@ int main()
 				
 			case 3:
 				deletar(); //Chamando a função deletar
+				break; //Quando você terminar de colocar todas as instruções em um cenário no switch, você precisa colocar “break”, o break seria um ponto final. Se você não colocar não dará certo.
+			
+			case 4:
+				printf("Obrigado por ter utilizado o nosso sistema.\n");
+				return 0; //Quebrando a repetição do repetidor “for”, e assim o programa é fechado, também não foi necessário colocar o system(“pause”);
 				break; //Quando você terminar de colocar todas as instruções em um cenário no switch, você precisa colocar “break”, o break seria um ponto final. Se você não colocar não dará certo.
 				
 			default: //Esse default do switch VOCÊ PODE USAR quando a opção que o usuário escolheu não existe, aí você coloca o default em seguida coloca as instruções embaixo, NÃO PRECISA SER SÓ PRA OPÇÃO QUE NÃO EXISTE. Ele não é obrigatório
