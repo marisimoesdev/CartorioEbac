@@ -168,8 +168,8 @@ int criar_conta()
 
 int entrar_cartorio()
 {
-	char celular_telefone[50]="a"; //Chamando a variável que já foi criada anteriormente. Esse valor dessa variável será sobreposto ao que o usuário digitar.. então não faz diferença. Acho que por ser uma string tem que estar entre aspas o valor
-	char senha[50]="a"; //Chamando a variável que já foi criada anteriormente. Esse valor dessa variável será sobreposto ao que o usuário digitar.. então não faz diferença. Acho que por ser uma string tem que estar entre aspas o valor
+	char celular_telefone[50]="a"; //Chamando a variável que já foi criada anteriormente. Esse valor dessa variável será sobreposto ao que o usuário digitar... então não faz diferença. Acho que por ser uma string tem que estar entre aspas o valor
+	char senha[50]="a"; //Chamando a variável que já foi criada anteriormente. Esse valor dessa variável será sobreposto ao que o usuário digitar... então não faz diferença. Acho que por ser uma string tem que estar entre aspas o valor
 	char informacao_usuario[200]; //Essa variável irá receber as informações do usuário
 	
 	printf("Insira os seus dados abaixo para entrar no cartório EBAC.\n\n"); //Mensagem para o usuário
@@ -230,7 +230,6 @@ int cartorio()
 
 	for(laco=1;laco=1;)
 	{
-		
 		system("cls"); //Esse comando limpa a tela, vai apagar todas as mensagens que tinha antes
 	
 		setlocale(LC_ALL, "Portuguese"); //Definição do idioma
@@ -241,7 +240,8 @@ int cartorio()
 		printf("\t1 - Cadastrar usuários.\n");
 		printf("\t2 - Consultar ususários.\n");
 		printf("\t3 - Deletar usuários.\n"); 
-		printf("\t4 - Sair do sistema.\n\n");//Final do menu 
+		printf("\t4 - Voltar para a área do administrador.\n");
+		printf("\t5 - Sair do sistema.\n\n");//Final do menu 
 		printf("Opção: ");
 	
 		scanf("%d", &opcao); //Armazenando a escolha do usuário na variável opção. É %d, pois é uma variável do tipo inteira
@@ -260,13 +260,18 @@ int cartorio()
 				deletar_usuario(); //Chamando a função deletar
 				break; //Quando você terminar de colocar todas as instruções em um cenário no switch, você precisa colocar “break”, o break seria um ponto final. Se você não colocar não dará certo.
 			case 4:
+				printf("Voltando para a área do administrador.\n\n"); //Mensagem para o usuário
+				return 0; //Coloquei “return 0;” para evitar um bug, porque se eu chamasse a main, ele até iria pra mains, porém se em logo em seguida na main eu escolhesse a opção 4 - Sair do sistema, ele não sairia, mas sim voltaria pro cartório. E pra quebrar isso eu coloco o “return 0” aqui, outra opção pra quebrar esse bug é colocar na main o “exit (0);”
+				break;//Quando você terminar de colocar todas as instruções em um cenário no switch, você precisa colocar “break”, o break seria um ponto final. Se você não colocar não dará certo.
+			case 5:
 				printf("Obrigado por ter utilizado o nosso sistema.\n"); //Mensagem para o usuário
 				exit (0); //Esse comando além de quebrar o loop do “for” ele também fehca o programa, ou seja, ele não volta pra função main. Os comandos return 0; e break; não fechariam o programa, mas sim a função e em seguida retornaria para a função main. E também não foi necessário colocar o system(“pause”); 
 				break; //Quando você terminar de colocar todas as instruções em um cenário no switch, você precisa colocar “break”, o break seria um ponto final. Se você não colocar não dará certo.
 			default: //Esse default do switch VOCÊ PODE USAR quando a opção que o usuário escolheu não existe, aí você coloca o default em seguida coloca as instruções embaixo, NÃO PRECISA SER SÓ PRA OPÇÃO QUE NÃO EXISTE. Ele não é obrigatório
 				printf("Essa opção não existe.\n\n");
 				system("pause");
-				break; //Final da seleção
+				break; //Quando você terminar de colocar todas as instruções em um cenário no switch, você precisa colocar “break”, o break seria um ponto final. Se você não colocar não dará certo.
+				//Final da seleção
 		}
 	}	
 }
